@@ -1,8 +1,104 @@
 # Changelog
 
+## 1.2.5
+
+### Bugfixes / Chores
+
+- ([#1748](https://github.com/wp-graphql/wp-graphql/pull/1748)) Fixes issue where installing the plugin in Trellis using Composer was causing the plugin not to load properly.
+
+## 1.2.4
+
+### Bugfixes / Chores
+
+- More work to fix Github -> SVN deploys. 🤦‍♂️
+
+## 1.2.3
+
+### Bugfixes / Chores
+
+- Addresses bug (still) causing deploys to WordPress.org to fail and not include the vendor directory.
+
+## 1.2.2
+
+### Bugfixes / Chores
+
+- Fixes Github workflow to deploy to WordPress.org
+
+## 1.2.1
+
+### Bugfixes / Chores
+
+- ([#1741](https://github.com/wp-graphql/wp-graphql/pull/1741)) Fix issue with DefaultTemplate not being registered to the Schema and throwing errors when no other templates are registered.
+
+## 1.2.0
+
+### New
+
+- ([#1732](https://github.com/wp-graphql/wp-graphql/pull/1732)) Add `isPrivacyPage` to the Schema for the Page type. Thanks @Marco-Daniel!
+
+### Bugfixes / Chores
+
+- ([#1734](https://github.com/wp-graphql/wp-graphql/pull/1734)) Remove Composer dependencies from being versioned in Github. Update Github workflows to install dependencies for deploying to WordPress.org and uploading release assets on Github.
+
+## 1.1.8
+
+### Bugfixes / Chores
+
+- Fix release asset url in Github action.
+
+## 1.1.7
+
+### Bugfixes / Chores
+
+- Fix release upload url in Github action.
+
+## 1.1.6
+
+### Bugfixes / Chores
+
+- ([#1723](https://github.com/wp-graphql/wp-graphql/pull/1723)) Fix CI Schema Linter action. Thanks @szepeviktor!
+- ([#1722](https://github.com/wp-graphql/wp-graphql/pull/1722)) Update PR Template message. Thanks @szepeviktor!
+- ([#1730](https://github.com/wp-graphql/wp-graphql/pull/1730)) Updates redundant test configuration in Github workflow. Thanks @szepeviktor!
+
+## 1.1.5
+
+### Bugfixes / Chores
+
+- ([#1718](https://github.com/wp-graphql/wp-graphql/pull/1718)) Simplify the main plugin file to adhere to more modern WP plugin standards. Move the WPGraphQL class to it's own file under the src directory. Thanks @szepeviktor!
+- ([#1704](https://github.com/wp-graphql/wp-graphql/pull/1704)) Fix end tags for inputs on the WPGraphQL Settings page to adhere to the w3 spec for inputs. Thanks @therealgilles!
+- ([#1706](https://github.com/wp-graphql/wp-graphql/pull/1706)) Show all content types in the ContentTypeEnum, not just public ones. Thanks @ljanecek!
+- ([#1699](https://github.com/wp-graphql/wp-graphql/pull/1699)) Set default value for 2nd paramater on `Tracker->get_info()` method. Thanks @SpartakusMd!
+
+## 1.1.4
+
+### Bugfixes
+
+- ([#1715](https://github.com/wp-graphql/wp-graphql/pull/1715)) Updates `WPGraphQL\Type\Object` namespace to be `WPGraphQL\Type\ObjectType` to play nice with newer versions of PHP where `Object` is a reserved namespace.
+- ([#1711](https://github.com/wp-graphql/wp-graphql/pull/1711)) Updates regex in phpstan.neon.dist. Thanks @szepeviktor!
+- ([#1719](https://github.com/wp-graphql/wp-graphql/pull/1719)) Update to backtrace that is output with graphql_debug messages to ensure it includes a `file` key in the returned array, before returning the trace. Thanks @kidunot89!
+
+## 1.1.3
+
+### Bugfixes
+
+- ([#1693](https://github.com/wp-graphql/wp-graphql/pull/1693)) Clear global user in the Router in case plugins have attempted to set the user before API authentication has been executed. Thanks @therealgilles!
+
+### New
+
+- ([#972](https://github.com/wp-graphql/wp-graphql/pull/972)) `graphql_pre_model_data_is_private` filter was added to the Abstract Model.php allowing Model's `is_private()` check to be bypassed.
+
+
+## 1.1.2
+
+### Bugfixes
+
+- ([#1676](https://github.com/wp-graphql/wp-graphql/pull/1676)) Add a `nav_menu_item` loader to allow previous menu item IDs to work properly with WPGraphQL should they be passed to a node query (like, if the ID were persisted somewhere already)
+- Update cases of menu item IDs to be `post:$id` instead of `nav_menu_item:$id`
+- Update tests to test that both the old `nav_menu_item:$id` and `post:$id` work for nav menu item node queries to support previously issued IDs
+
 ## 1.1.1
 
-## Bugfix
+### Bugfixes
 
 - ([#1670](https://github.com/wp-graphql/wp-graphql/issues/1670)) Fixes a bug with querying pages that are set as to be the posts page
 
@@ -10,12 +106,12 @@
 
 This release centers around updating code quality by implementing [PHPStan](https://phpstan.org/) checks. PHPStan is a tool that statically analyzes PHP codebases to detect bugs. This release centers around updating Docblocks and overall code quality, and implements automated tests to check code quality on every pull request.
 
-## New
+### New
 
 - Update PHPStan (Code Quality checker) to v0.12.64
 - Increases PHPStan code quality checks to Level 8 (highest level).
 
-## Bugfixes
+### Bugfixes
 - ([#1653](https://github.com/wp-graphql/wp-graphql/issues/1653)) Fixes bug where WPGraphQL was explicitly setting `has_published_posts` on WP_Query but WP_Query does this under the hood already. Thanks @jmartinhoj!
 - Fixes issue with Comment Model returning comments that are not associated with a Post object. Comments with no associated Post object are not public entities.
 - Update docblocks to be compatible with PHPStan Level 8. 
