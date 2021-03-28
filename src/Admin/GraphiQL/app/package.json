@@ -18,7 +18,7 @@
     "graphql": "^14.7.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "whatwg-fetch": "^3.5.0"
+    "whatwg-fetch": "^3.6.2"
   },
   "scripts": {
     "start": "react-scripts start",
